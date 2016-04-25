@@ -14,6 +14,16 @@ Example
 
 .. code-block::
 
-    [paypal]
+    [paypal_sek]
     plugin = paypal
-    account_id = 42
+    locale = sv_SE
+    account_id = john.doe@gmail.com
+    currency = SEK
+    analyze = 1
+
+    [paypal_eur]
+    plugin = paypal
+    locale = sv_SE
+    account_id = john.doe@gmail.com
+    currency = EUR
+    analyze = 1
