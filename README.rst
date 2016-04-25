@@ -22,6 +22,24 @@ to make it more relevant e.g. it picks ``Item Title`` for any steam purchases:
 
 It is completely optional and up to you.
 
+Locale
+======
+
+You can configure exact locale and encodings to use during parsing. Here is example how to configure both of them
+with the default configuration you always have.
+
+.. code-block::
+
+    [default]
+    plugin = paypal
+    encoding = iso8859-1
+
+    [paypal]
+    plugin = paypal
+    encoding = iso8859-1
+    locale = sv_SE
+    ...
+
 Example
 =======
 
