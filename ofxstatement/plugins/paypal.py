@@ -164,7 +164,6 @@ class PayPalStatementParser(StatementParser):
         stmt_line.refnum = row[refnum_idx]
         stmt_line.amount = atof(row[amount_idx].replace(" ", ""), self.locale)
 
-        print(stmt_line)
         return stmt_line
 
 
