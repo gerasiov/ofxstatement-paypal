@@ -9,6 +9,19 @@ It is a plugin for `ofxstatement`_.
 .. _PayPal: https://www.paypal.com
 .. _ofxstatement: https://github.com/kedder/ofxstatement
 
+Configuration
+=============
+
+PayPal exports data for all currencies in one file. This means you must define different configurations for different
+currencies. See below for examples.
+
+It worth mentioning that there is ``analyze`` option that enables simple analyzing that modifies memo in attempt
+to make it more relevant e.g. it picks ``Item Title`` for any steam purchases:
+
+``WWW.Steampowered.com`` -> ``WWW.Steampowered.com / Hero Siege``
+
+It is completely optional and up to you.
+
 Example
 =======
 
@@ -16,14 +29,18 @@ Example
 
     [paypal_sek]
     plugin = paypal
-    locale = sv_SE
-    account_id = john.doe@gmail.com
+    account_id = john.doe@gmail.com/SEK
     currency = SEK
     analyze = 1
 
     [paypal_eur]
     plugin = paypal
-    locale = sv_SE
-    account_id = john.doe@gmail.com
+    account_id = john.doe@gmail.com/EUR
     currency = EUR
+    analyze = 1
+
+    [paypal_usd]
+    plugin = paypal
+    account_id = john.doe@gmail.com/USD
+    currency = USD
     analyze = 1
