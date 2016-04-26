@@ -111,7 +111,7 @@ class PayPalStatementParser(StatementParser):
 
     @property
     def reader(self):
-        return csv.reader(self.lines, delimiter=',')
+        return csv.reader(self.lines, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
 
     @property
     def header(self):
