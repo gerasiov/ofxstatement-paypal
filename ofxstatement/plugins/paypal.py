@@ -150,16 +150,23 @@ class PayPalStatementParser(StatementParser):
         refnum_idx = self.valid_header.index("Reference Txn ID")
         amount_idx = self.valid_header.index("Gross")
         payee_idx = self.valid_header.index("To Email Address")
+        title_idx = self.valid_header.index("Item Title")
 
         stmt_line = StatementLine()
         stmt_line.id = row[id_idx]
         stmt_line.date = datetime.strptime(row[date_idx], self.date_format)
-        stmt_line.payee = row[payee_idx]
         stmt_line.memo = row[memo_idx]
+
         if self.analyze:
-            if stmt_line.payee.lower() == 'steamgameseu@steampowered.com':
-                idx = self.valid_header.index("Item Title")
-                stmt_line.memo = '{0} / {1}'.format(stmt_line.memo, row[idx])
+            memo_parts = [
+                row[memo_idx]
+            ]
+
+            payee = row[payee_idx]
+            if payee and (payee.lower() == 'steamgameseu@steampowered.com'):
+                memo_parts.append(row[title_idx])
+
+            stmt_line.memo = ' / '.join(filter(bool, memo_parts))
 
         stmt_line.refnum = row[refnum_idx]
         stmt_line.amount = atof(row[amount_idx].replace(" ", ""), self.locale)
