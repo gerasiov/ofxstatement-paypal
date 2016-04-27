@@ -45,19 +45,19 @@ Example
 
 .. code-block::
 
-    [paypal_sek]
+    [paypal:sek]
     plugin = paypal
     account_id = john.doe@gmail.com/SEK
     currency = SEK
     analyze = 1
 
-    [paypal_eur]
+    [paypal:eur]
     plugin = paypal
     account_id = john.doe@gmail.com/EUR
     currency = EUR
     analyze = 1
 
-    [paypal_usd]
+    [paypal:usd]
     plugin = paypal
     account_id = john.doe@gmail.com/USD
     currency = USD
