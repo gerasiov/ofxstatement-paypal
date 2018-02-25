@@ -1,6 +1,9 @@
 .. image:: https://travis-ci.org/themalkolm/ofxstatement-paypal.svg?branch=master
     :target: https://travis-ci.org/themalkolm/ofxstatement-paypal
 
+ofxstatement-paypal
+===================
+
 This is a collection of parsers for proprietary statement formats, produced by
 `PayPal`_. It parses ``*.csv`` file exported from the site.
 
